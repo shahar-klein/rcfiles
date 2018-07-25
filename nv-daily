@@ -1,1 +1,9 @@
 
+Insert a column in vim
+
+    Move the cursor to the first character in the first line  you want to push 
+    Enter visual block mode (ctrlv).
+    go down to end of the section
+    Press I (capital i).
+    Type in whatever you need to push.
+    Press esc.

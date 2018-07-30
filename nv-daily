@@ -7,3 +7,16 @@ Insert a column in vim
     Press I (capital i).
     Type in whatever you need to push.
     Press esc.
+
+
+dmidecode -t memory | grep Size
+
+xe host-set-hostname-live host-uuid=3547a67b-e80a-45ee-8b2d-62e56314972a host-name=sdnbs2
+
+Add storage to xen server
+xe sr-create name-label=LV500 shared=false device-config:device=/dev/sdb type=lvm content-type=user
+
+
+
+#sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
+#sudo yum update

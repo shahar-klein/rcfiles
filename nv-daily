@@ -7,3 +7,5 @@ Insert a column in vim
     Press I (capital i).
     Type in whatever you need to push.
     Press esc.
+
+    rpm -qf == dpkg -S /usr/bin/some_file

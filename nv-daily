@@ -21,3 +21,8 @@ xe sr-create name-label=LV500 shared=false device-config:device=/dev/sdb type=lv
 
 #sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
 #sudo yum update
+
+docker commit -m "added noodle" -a "ShaharK" 0bf00882600e shaharklein/ubuntu-noodle
+
+docker pull shaharklein/ubuntu-noodle
+docker run -it shaharklein/ubuntu-noodle

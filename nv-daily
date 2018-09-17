@@ -26,3 +26,16 @@ docker commit -m "added noodle" -a "ShaharK" 0bf00882600e shaharklein/ubuntu-noo
 
 docker pull shaharklein/ubuntu-noodle
 docker run -it shaharklein/ubuntu-noodle
+
+kubectl delete pods --all
+kubectl create -f ./ubuntu.yaml
+kubectl exec -it iperfk8s-server -- /bin/sh
+
+dns: /etc/netplan/50-cloud-init.yaml
+
+git tag -a test3.p.b 30e4ebd
+git push origin test3.p.b
+
+ovs-vsctl set Open_vSwitch . other_config:n-revalidator-threads=4
+ovs-vsctl set Open_vSwitch . other_config:n-handler-threads=10
+

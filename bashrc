@@ -60,14 +60,14 @@ export HISTSIZE=9999
 # History file size
 export HISTFILESIZE=999999
 
-export PATH=$PATH:/usr/local/bin:~/bin:~roid/bin:~roid/scripts
+export PATH=$PATH:/usr/local/bin:~/bin
 export EDITOR=vim
 
 #for i in `find -type d $HOME/scripts` ; do
 #    export PATH=$PATH:$i
 #done
 
-source ~roid/.bash_completion
+
 
 # search history
 bind '"\e[A":history-search-backward'
@@ -92,10 +92,10 @@ vimgrep() {
 }
 alias vgrep='vimgrep'
 
-export SW='/.autodirect/mtrswgwork/roid'
+
 export SWVSA='/project/sw/storage/vsa'
 export DCS='/project/sw/dcs'
-test -d /.autodirect/mtrsysgwork/roid && export SWS='/.autodirect/mtrsysgwork/roid' || export SWS='/mtrsysgwork/roid'
+
 
 alias sw='cd $SW'
 alias swvsa='cd $SWVSA'

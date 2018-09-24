@@ -1,6 +1,6 @@
 #
 # bashrc
-# Roi Dayan (roid@mellanox.com)
+#
 #
 
 source ~/.alias.bash
@@ -28,10 +28,6 @@ if [ -d /opt/vmware ]; then
 fi
 
 ### END ESX WB ###
-
-#mtlreg 10.0.20.54
-#python /mswg/projects/test_suite2/bin/personal_report.py TEMPORARY roid
-#/tmp/personal_email/ roid.html
 
 index-path-kernel ()
 {

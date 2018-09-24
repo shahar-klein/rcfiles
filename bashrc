@@ -208,7 +208,7 @@ alias gcheckout='git checkout HEAD'
 alias gupdate='git remote update'
 
 alias gfetch2tall='git fetch /mswg/git/FabricIT/tallmaple.git master'
-alias gpush2tall='git push ssh://roid@fit15/mswg/git/FabricIT/tallmaple.git refs/heads/master:refs/heads/master'
+
 
 alias grebase='git rebase --merge FETCH_HEAD'
 alias gcommit='/mswg/release/git_wrapper_ui_pygtk/commit_ui_wrapper.py'
@@ -265,7 +265,7 @@ show_colors() {
         for i in `seq 9` ; do
             for j in `seq 9` ; do
                 bb=""
-                if ((b > 0)) ; then bb="1;" ; fi
+                if ((b > 0)) ; then bb="1;" ; fihttps://support.mozilla.org/en-US/questions/1168139
                 x="xxxxxxxxx"
                 echo -e "$b,$i,$j->\e[${bb}3${j};4${i}m$x\e[0m"
     done ; done ; done
@@ -281,7 +281,7 @@ hca_rate() {
     done
 }
 
-alias cpu_performance='/labhome/roid/scripts/cpu_performance.sh'
+
 #/swgwork/performance/ToolKit/cpu_performance.sh
 alias mlnxperftuner='/swgwork/performance/ToolKit/mlnxperftuner'
 alias mlnxperfstatus='/swgwork/performance/ToolKit/perf_status'

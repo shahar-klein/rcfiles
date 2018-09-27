@@ -39,3 +39,5 @@ git push origin test3.p.b
 ovs-vsctl set Open_vSwitch . other_config:n-revalidator-threads=4
 ovs-vsctl set Open_vSwitch . other_config:n-handler-threads=10
 
+rpm -qa  == apt list --installed
+

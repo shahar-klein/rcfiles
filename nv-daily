@@ -41,3 +41,9 @@ ovs-vsctl set Open_vSwitch . other_config:n-handler-threads=10
 
 rpm -qa  == apt list --installed
 
+
+pull(update) forked project:
+#git checkout master
+#git pull https://github.com/openvswitch/ovn-kubernetes.git master
+#git push origin master
+

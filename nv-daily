@@ -49,3 +49,9 @@ pull(update) forked project:
 
 https://github.com/nleiva/kubernetes-networking-links
 
+kubectl describe node nd-sjc3a-c18-cpu-06
+
+Map eth to mlx in container:
+for f in `ls /sys/class/infiniband/` ; do D=`cat /sys/class/infiniband/$f/ports/1/gid_attrs/ndevs/0 2>/dev/null` && echo "$f: $D" ; done
+
+

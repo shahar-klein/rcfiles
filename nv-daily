@@ -41,6 +41,11 @@ ovs-vsctl set Open_vSwitch . other_config:n-handler-threads=10
 
 rpm -qa  == apt list --installed
 
+journalctl -f -u openvswitch-xapi-sync -u openvswitch
+journalctl --boot=-1
+systemctl show openvswitch.service | egrep "Want|Require|After|Before"
+systemctl list-unit-files
+systemctl list-unit-files | grep open
 
 pull(update) forked project:
 #git checkout master
@@ -50,8 +55,15 @@ pull(update) forked project:
 https://github.com/nleiva/kubernetes-networking-links
 
 kubectl describe node nd-sjc3a-c18-cpu-06
+alias ml='kubectl -n ovn-kubernetes logs `kubectl -n ovn-kubernetes get pods -o wide | grep master | cut -f1 -d" "`'
 
 Map eth to mlx in container:
 for f in `ls /sys/class/infiniband/` ; do D=`cat /sys/class/infiniband/$f/ports/1/gid_attrs/ndevs/0 2>/dev/null` && echo "$f: $D" ; done
 
+ovn-nbctl get logical_switch_port default_busybox external-ids
+ovs-vsctl get Interface vif46.1 external-ids
+
+systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl force-reload-kmod ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
+systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` restart  ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
+wget -r --no-parent --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/f6ea65c0488d/ubuntu/
 

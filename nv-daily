@@ -35,6 +35,7 @@ dns: /etc/netplan/50-cloud-init.yaml
 
 git tag -a test3.p.b 30e4ebd
 git push origin test3.p.b
+git config --get-regexp alias
 
 ovs-vsctl set Open_vSwitch . other_config:n-revalidator-threads=4
 ovs-vsctl set Open_vSwitch . other_config:n-handler-threads=10
@@ -66,4 +67,6 @@ ovs-vsctl get Interface vif46.1 external-ids
 systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl force-reload-kmod ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
 systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` restart  ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
 wget -r --no-parent --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/f6ea65c0488d/ubuntu/
+
+https://sc-itss-02.nvidia.com/users/dns/staticip
 

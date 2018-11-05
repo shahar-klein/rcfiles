@@ -76,6 +76,7 @@ Edit /boot/extlinux.conf and under the stanza for xe, remove the line which says
 mst status -v
 wget http://www.mellanox.com/downloads/MFT/mft-4.10.0-104-x86_64-deb.tgz
 mlxconfig -d /dev/mst/mt4119_pciconf2 q 
+mlxconfig -d /dev/mst/mt4119_pciconf1 set KEEP_ETH_LINK_UP_P1=False
 pci map: basename `readlink /sys/class/net/enp132s0/device`
 
 ip link add name bond1 type bond mode active-backup miimon 100

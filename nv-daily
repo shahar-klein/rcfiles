@@ -70,3 +70,14 @@ wget -r --no-parent --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/f6
 
 https://sc-itss-02.nvidia.com/users/dns/staticip
 
+xen no splash screen:
+Edit /boot/extlinux.conf and under the stanza for xe, remove the line which says splash or add nosplash to it
+
+mst status -v
+wget http://www.mellanox.com/downloads/MFT/mft-4.10.0-104-x86_64-deb.tgz
+mlxconfig -d /dev/mst/mt4119_pciconf2 q 
+pci map: basename `readlink /sys/class/net/enp132s0/device`
+
+ip link add name bond1 type bond mode active-backup miimon 100
+
+

@@ -80,5 +80,5 @@ mlxconfig -d /dev/mst/mt4119_pciconf1 set KEEP_ETH_LINK_UP_P1=False
 pci map: basename `readlink /sys/class/net/enp132s0/device`
 
 ip link add name bond1 type bond mode active-backup miimon 100
-
+find /sys/class/net/*/device/vendor | xargs grep '0x15b3' | awk -F '/' '{print $5}' | xargs -I % sh -c 'stat /sys/class/net/%/device/physfn > /dev/null 2>&1 || echo %' | xargs echo -n
 

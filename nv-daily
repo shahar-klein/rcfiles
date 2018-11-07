@@ -70,6 +70,29 @@ wget -r --no-parent --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/f6
 
 https://sc-itss-02.nvidia.com/users/dns/staticip
 
+'''
+#print(" ".join(ipdb.by_name.keys()))
+#print ipdb.by_name.keys()
+#find /sys/class/net/*/device/vendor | xargs grep '0x15b3' | awk -F '/' '{print $5}' | xargs -I % sh -c 'stat /sys/class/net/%/device/physfn > /dev/null 2>&1 || echo %'
+
+with IPRoute() as ipr:
+    iface = ipr.link_lookup(ifname="enp132s0")
+    print iface
+
+cmd="find /sys/class/net/*/device/vendor | xargs grep '0x15b3' | awk -F '/' '{print $5}' | xargs -I % sh -c 'stat /sys/class/net/%/device/physfn > /dev/null 2>&1 || echo %' | xargs echo -n"
+
+p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+(output, err) = p.communicate()
+p_status = p.wait()
+#print "Command output : ", output
+L=list(output.split(" "))
+for l in L:
+    print l
+
+
+'''
+
+
 xen no splash screen:
 Edit /boot/extlinux.conf and under the stanza for xe, remove the line which says splash or add nosplash to it
 

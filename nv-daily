@@ -1,4 +1,7 @@
 
+for i in {0..4}; do D=`cat /proc/net/bonding/bond0 | grep "Currently Active" | cut -f2  -d: | xargs | rev | cut -c3- | rev` ; ip link set $D down ; sleep 3 ; ip link set $D up ; sleep 3 ;done
+
+
 Insert a column in vim
 
     Move the cursor to the first character in the first line  you want to push 

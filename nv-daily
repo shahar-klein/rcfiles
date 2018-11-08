@@ -94,6 +94,33 @@ for l in L:
 
 
 '''
+  931  /usr/share/openvswitch/scripts/ovn-ctl start_northd
+  932  /usr/share/openvswitch/scripts/ovn-ctl start_ovsdb
+  933  /usr/share/openvswitch/scripts/ovn-ctl start_controller
+  934  ovn-nbctl show
+  935  ovs-vsctl get open . external_ids
+  936  netstat -nap | grep 6642
+  937  ovn-nbctl ls add ls-GPU00
+  938  ovn-nbctl ls-add ls-GPU00
+  939  ovn-nbctl show ls-GPU00
+  940  ovn-nbctl lsp-add ls-GPU00 enp132s0-rep
+  941  ovn-nbctl show ls-GPU00
+  942  ovs-vsctl add-port br-int enp132s0_1
+  943  ovn-sbctl show
+  944  #ovs-vsctl set Open_vSwitch . external-ids:ovn-bridge-mappings=
+  945  ovs-vsctl show
+  946  ovs-vsctl set Open_vSwitch . external-ids:ovn-bridge-mappings=outenp132s0:br-enp132s0
+  947  ovn-nbctl lsp-add ls-GPU00  port0_0 -- set logical_switch_port port0_0 type=localnet addresses=unknown options:network_name=outenp132s0
+  948  ovs-vsctl show
+  949  ip link show
+  950  #ovn-nbctl lsp-add ls-GPU00 enp132s0-rep
+  951  ovn-nbctl lsp-set-addresses enp132s0-rep e4:11:22:73:d6:51
+  952  ip a add 30.30.30.9/24 dev enp132s0f2
+  953  ip link set enp132s0f2 up
+  954  ip link set enp132s0_1 up
+  955  tcpdump -nni enp132s0_1
+  956  tcpdump -nni enp132s0_1 icmp
+
 
 
 xen no splash screen:

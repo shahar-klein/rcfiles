@@ -17,6 +17,18 @@ dmidecode -t memory | grep Size
 
 xe host-set-hostname-live host-uuid=3547a67b-e80a-45ee-8b2d-62e56314972a host-name=sdnbs2
 
+#console to xen vm
+xl list
+# cat con.sh
+#!/bin/sh
+
+domid=$1
+tty=$(xenstore-read /local/domain/${domid}/console/tty)
+socat - ${tty},IGNBRK=0,BRKINT=0,PARMRK=0,ISTRIP=0,INLCR=0,IGNCR=0,ICRNL=0,IXON=0,OPOST=0,ECHO=0,ECHONL=0,ICANON=0,ISIG=0,IEXTEN=0,CSIZE=0,PARENB=0,CS8
+#bash con.sh 3
+
+
+
 Add storage to xen server
 xe sr-create name-label=LV500 shared=false device-config:device=/dev/sdb type=lvm content-type=user
 

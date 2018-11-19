@@ -1,6 +1,8 @@
 
 for i in {0..4}; do D=`cat /proc/net/bonding/bond0 | grep "Currently Active" | cut -f2  -d: | xargs | rev | cut -c3- | rev` ; ip link set $D down ; sleep 3 ; ip link set $D up ; sleep 3 ;done
 
+#random mac generator:
+python -c "import random; mac = [random.choice(range(256)) for i in range(6)]; mac[0] |= 0x02; mac[0] &= 0xfe; print ':'.join('%02x' % m for m in mac)"
 
 Insert a column in vim
 

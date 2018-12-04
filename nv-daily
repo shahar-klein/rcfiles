@@ -4,6 +4,9 @@ for i in {0..4}; do D=`cat /proc/net/bonding/bond0 | grep "Currently Active" | c
 #random mac generator:
 python -c "import random; mac = [random.choice(range(256)) for i in range(6)]; mac[0] |= 0x02; mac[0] &= 0xfe; print ':'.join('%02x' % m for m in mac)"
 
+dhclient -r enp0s31f6
+dhclient enp0s31f6
+
 Insert a column in vim
 
     Move the cursor to the first character in the first line  you want to push 

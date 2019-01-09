@@ -156,3 +156,5 @@ find /sys/class/net/*/device/vendor | xargs grep '0x15b3' | awk -F '/' '{print $
 
 ip link | grep DOWN | grep enp.* | cut -d: -f2 | xargs -I {} ip link set dev {} up
 
+ip route show table all
+

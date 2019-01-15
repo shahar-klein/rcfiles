@@ -158,3 +158,18 @@ ip link | grep DOWN | grep enp.* | cut -d: -f2 | xargs -I {} ip link set dev {} 
 
 ip route show table all
 
+# cat unfold.sh 
+kubectl delete -f busybox-3-networks.yaml
+kubectl delete -f multus-ovn-daemonset.yaml 
+kubectl delete -f ovnkube-master.yaml
+kubectl delete -f ovnkube.yaml
+kubectl -n kube-system get node nd-sjc3a-c18-cpu-07 -o yaml | sed '/netgpu1:/,+2 d' | sed '/netgpu2:/,+2 d' | sed '/ovn:/,+2 d' | sed '/networks:/d'   | kubectl replace -f -
+kubectl -n kube-system get node nd-sjc3a-c18-cpu-06 -o yaml | sed '/netgpu1:/,+2 d' | sed '/netgpu2:/,+2 d' | sed '/ovn:/,+2 d' | sed '/networks:/d'   | kubectl replace -f -
+rm -f /var/lib/openvswitch/{*,.*}
+rm -f /etc/origin/openvswitch/{*,.*}
+systemctl restart openvswitch-switch.service
+
+
+
+
+

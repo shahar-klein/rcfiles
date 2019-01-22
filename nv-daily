@@ -88,6 +88,7 @@ ovs-vsctl get Interface vif46.1 external-ids
 systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl force-reload-kmod ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
 systemctl stop openvswitch ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` start ; /usr/share/openvswitch/scripts/ovs-ctl --system-id=`cat /etc/openvswitch/system-id.conf` restart  ; /usr/share/openvswitch/scripts/ovs-ctl stop ; systemctl start openvswitch
 wget -r --no-parent --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/f6ea65c0488d/ubuntu/
+wget -r --no-parent -nH --cut-dirs 10 --no-check-certificate https://repo.nvsdn.net/ovs-ovn/dev/6bf19aa6edb3/ubuntu/ -P /tmp/foo
 
 https://sc-itss-02.nvidia.com/users/dns/staticip
 

@@ -170,6 +170,13 @@ rm -f /var/lib/openvswitch/{*,.*}
 rm -f /etc/origin/openvswitch/{*,.*}
 systemctl restart openvswitch-switch.service
 
+    2  ip rule show
+    3  ip route show table 1
+    4  ip route show table 11
+    5  ip route del table 11 default 
+    6  ip route add table 11 default dev net1
+
+
 
 
 

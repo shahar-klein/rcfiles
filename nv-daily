@@ -141,6 +141,30 @@ for l in L:
   956  tcpdump -nni enp132s0_1 icmp
 
 
+  mkdir tmp
+  cd tmp/
+  mkdir forGO
+  cd forGO/
+  export GOPATH=`pwd`
+  mkdir -p src
+  cd src
+  git clone ssh://git@gitlab-master.nvidia.com:12051/sklein/ovn-kubernetes.git
+  git remote add vn ssh://git@gitlab-master.nvidia.com:12051/venugopali/ovn-kubernetes.git
+  cd ovn-kubernetes/
+  git remote add vn ssh://git@gitlab-master.nvidia.com:12051/venugopali/ovn-kubernetes.git
+  git fetch vn
+  git checkout vn/vi-nv-sriov-multus
+  git checkout -b add-sriovnet-and-use-it
+  cd go-controller/
+  govendor fetch github.com/Mellanox/sriovnet
+  git diff
+  git add -A vendor
+  git status
+  git commit -am "Add sriovnet to vendor" 
+  git slog
+
+
+
 
 xen no splash screen:
 Edit /boot/extlinux.conf and under the stanza for xe, remove the line which says splash or add nosplash to it

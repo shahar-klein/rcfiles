@@ -54,6 +54,8 @@ kubectl exec -it iperfk8s-server -- /bin/sh
 
 dns: /etc/netplan/50-cloud-init.yaml
 
+# flint -d /dev/mst/mt4119_pciconf0 -i /tmp/geneve_fw_drop_v2.bin burn
+
 git tag -a test3.p.b 30e4ebd
 git push origin test3.p.b
 git config --get-regexp alias

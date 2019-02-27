@@ -202,6 +202,10 @@ systemctl restart openvswitch-switch.service
     5  ip route del table 11 default 
     6  ip route add table 11 default dev net1
 
+ 1189  grep menu /boot/grub/grub.cfg
+
+ 1191  grub-reboot '1>8'
+ 1192  reboot
 
 
 

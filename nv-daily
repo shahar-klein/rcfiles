@@ -94,6 +94,8 @@ wget -r --no-parent -nH --cut-dirs 10 --no-check-certificate https://repo.nvsdn.
 
 https://sc-itss-02.nvidia.com/users/dns/staticip
 
+apt-cache search libdb
+
 '''
 #print(" ".join(ipdb.by_name.keys()))
 #print ipdb.by_name.keys()

@@ -1,6 +1,8 @@
 
 udevadm info -e |
 
+sudo make -j4 && sudo make modules_install INSTALL_MOD_STRIP=1
+
 for i in {0..4}; do D=`cat /proc/net/bonding/bond0 | grep "Currently Active" | cut -f2  -d: | xargs | rev | cut -c3- | rev` ; ip link set $D down ; sleep 3 ; ip link set $D up ; sleep 3 ;done
 
 #random mac generator:

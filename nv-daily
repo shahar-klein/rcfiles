@@ -1,6 +1,7 @@
 
 udevadm info -e |
 
+ssh -R 12051:gitlab-master.nvidia.com:12051 root@10.8.51.51
 # cat ~/.ssh/config 
 Host gitlab-master.nvidia.com
     User  sklein

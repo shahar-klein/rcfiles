@@ -1,3 +1,20 @@
+bashrc ovn
+nbctl() {
+        cmd=$@
+        MASTER_POD=`kubectl -n ovn-kubernetes get pods -o custom-columns='NAME:metadata.name'| grep master`
+        MASTER_IP=`kubectl get nodes -o wide | grep master | awk '{print $6}'`
+        kubectl -n ovn-kubernetes exec -it $MASTER_POD -c ovnkube-master -- sh -c "export OVN_NB_DB=tcp:${MASTER_IP}:6641 ; ovn-nbctl $cmd"
+}
+
+sbctl() {
+        cmd=$@
+        MASTER_POD=`kubectl -n ovn-kubernetes get pods -o custom-columns='NAME:metadata.name'| grep master`
+        MASTER_IP=`kubectl get nodes -o wide | grep master | awk '{print $6}'`
+        kubectl -n ovn-kubernetes exec -it $MASTER_POD -c ovnkube-master -- sh -c "export OVN_SB_DB=tcp:${MASTER_IP}:6642 ; ovn-sbctl $cmd"
+}
+
+
+
 
 udevadm info -e |
 
